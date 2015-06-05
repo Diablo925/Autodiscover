@@ -1,0 +1,75 @@
+<div class="zmodule_content panel" id="zmodule_header_<@ ModuleName @>">
+    <div class="panel-heading">
+        <img src="<@ ModuleIcon @>" width="35" height="35" border="0" alt="<@ ModuleName @>">
+
+        <div class="zmodule_title">
+            <@ ModuleName @>
+        </div>
+
+        <div class="zmodule_desc" id="zmodule_desc_<@ ModuleName @>"><@ ModuleDesc @></div>
+
+    </div>
+
+    <@ Result @>
+
+    <div class="zgrid_wrapper">
+        <h2><: Autodiscover generator :></h2>
+        <form action="./?module=Autodiscover&action=Make" method="post">
+            <table class="table table-striped">
+               <tr>
+                                <th nowrap="nowrap"><: Domain :>:</th>
+                                <td>
+                                    <select name="inDomain" id="inDomain">
+                                        <option value="" selected="selected">-- <: Select a domain :> --</option>
+                                        <% loop DomainList %>
+                                        <option value="<& domain &>"><& domain &></option>
+                                        <% endloop %>
+                                    </select>
+                                </td>
+              </tr>
+			  <tr>
+                <th nowrap="nowrap"><: IMAP server name :>:</th>
+                    <td><input type="text" name="inImapServer" id="inImapServer" /><br /><small>Leave blank if not inuse</small></td>
+			  </tr>
+			  <tr>
+				<th nowrap="nowrap"><: IMAP PORT :>:</th>
+                    <td><input type="text" name="inImapPort" id="inImapPort" value="143"/></td>
+              </tr>
+			  <tr>
+				<th nowrap="nowrap"><: IMAP TLS :>:</th>
+                    <td><input type="checkbox" name="inImapTls" id="inImapTls" value="1"/></td>
+              </tr>
+			  <tr>
+                <th nowrap="nowrap"><: POP3 server name :>:</th>
+                    <td><input type="text" name="inPop3Server" id="inPop3Server"/><br /><small>Leave blank if not inuse</small></td>
+			  </tr>
+			  <tr>
+				<th nowrap="nowrap"><: POP3 PORT :>:</th>
+                    <td><input type="text" name="inPop3Port" id="inPop3Port" value="110"/></td>
+              </tr>
+			  <tr>
+				<th nowrap="nowrap"><: POP3 TLS :>:</th>
+                    <td><input type="checkbox" name="inPop3Tls" id="inPop3Tls" value="1"/></td>
+              </tr>
+			  <tr>
+                <th nowrap="nowrap"><: SMTP server name :>:</th>
+                    <td><input type="text" name="inSmtpServer" id="inSmtpServer"/></td>
+			  </tr>
+			  <tr>
+				<th nowrap="nowrap"><: SMTP PORT :>:</th>
+                    <td><input type="text" name="inSmtpPort" id="inSmtpPort" value="25"/></td>
+              </tr>
+			  <tr>
+				<th nowrap="nowrap"><: SMTP TLS :>:</th>
+                    <td><input type="checkbox" name="inSmtpTls" id="inSmtpTls" value="1"/></td>
+              </tr>
+			  <tr>
+                    <th><button class="button-loader btn btn-primary" type="submit" id="button" name="inSubmit" value="inSave"><: Save :></button></th>
+                    <td>  
+                    </td>
+                </tr>
+            </table>
+            <@ CSFR_Tag @>
+        </form>
+    </div>
+</div>
